@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <h1>Hi this is vue</h1>
+
+    <div id="app">
+      <!-- cannot use data outside of this app -->
+      <h2>{{title}} - {{year}}</h2>
+
+      <button v-on:click="year++">Increase Year</button>
+      <button v-on:click="year--">Decrease Year</button>
+
+      <div v-on:click="changeTitle">Change 1</div>
+      <div v-on:click="changeTitleViaArg('VodeAn')">Change 3</div>
+      <div @click="title = 'Return of the Jedi'">Change 2</div>
+
+      <!-- v-on is used for events -->
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
