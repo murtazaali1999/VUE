@@ -12,7 +12,10 @@
 
     <div id="app">
       <!-- cannot use data outside of this app -->
-      <h2>{{title}} - {{year}}</h2>
+
+      <div v-if="show">
+        <h2>{{title}} - {{year}}</h2>
+      </div>
 
       <button v-on:click="year++">Increase Year</button>
       <button v-on:click="year--">Decrease Year</button>
@@ -21,6 +24,12 @@
       <div v-on:click="changeTitleViaArg('VodeAn')">Change 3</div>
       <div @click="title = 'Return of the Jedi'">Change 2</div>
 
+      <div>
+        <button @click="toogleData()" v-if="show">Toggle Show</button>
+        <!-- If show is true then show to toggle false -->
+        <button @click="toogleData()" v-else>Toggle Show</button>
+        <!-- if show is false then show to toggle true -->
+      </div>
       <!-- v-on is used for events -->
     </div>
 
