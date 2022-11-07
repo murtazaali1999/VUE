@@ -5,7 +5,27 @@ const app = Vue.createApp({
         return {
             title: "Final Jedi",
             year: 2015,
-            show: true
+            show: true,
+            x: 0,
+            y: 0,
+            games: [
+                {
+                    name: "RedDead",
+                    price: 100
+                },
+                {
+                    name: "MetalGear",
+                    price: 200
+                },
+                {
+                    name: "Naruto Shippuden",
+                    price: 300
+                },
+                {
+                    name: "Death Stranding",
+                    price: 400
+                },
+            ]
         }
     },
     methods: {
@@ -19,6 +39,15 @@ const app = Vue.createApp({
         toogleData() {
             if (this.show == true) this.show = false;
             else this.show = true;
+        },
+        handleEvent(e, arg) {
+            this.show = false
+            console.log("Event Activated")
+            console.log(e, e.type, "number==>", arg);
+        },
+        handleMouseMove(e) {
+            this.x = e.offsetX;
+            this.y = e.offsetY;
         }
     }
 });

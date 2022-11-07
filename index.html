@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background-color: rgb(87, 81, 81);
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
@@ -31,6 +41,19 @@
         <!-- if show is false then show to toggle true -->
       </div>
       <!-- v-on is used for events -->
+
+      <!-- Mouse Events -->
+      <!-- event argument passed in the function -->
+      <div class="box" @mouseover="handleEvent($event,10)">Mouse Over</div>
+      <div class="box" @mouseleave="handleEvent($event,10)">Mouse Leave</div>
+      <div class="box" @dblclick="handleEvent($event,10)">Double Click</div>
+      <div class="box" @mousemove="handleMouseMove">{{x}} <--> {{y}}</div>
+
+      <div class="gamer">
+        <ul v-for="game in games">
+          <li>{{game.name}} -- {{game.price}}</li>
+        </ul>
+      </div>
     </div>
 
     <script src="./main.js"></script>
