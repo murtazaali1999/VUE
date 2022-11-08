@@ -11,21 +11,29 @@ const app = Vue.createApp({
             games: [
                 {
                     name: "RedDead",
-                    price: 100
+                    price: 100,
+                    released: true
                 },
                 {
                     name: "MetalGear",
-                    price: 200
+                    price: 200,
+                    released: true
                 },
                 {
                     name: "Naruto Shippuden",
-                    price: 300
+                    price: 300,
+                    released: true
                 },
                 {
-                    name: "Death Stranding",
-                    price: 400
+                    name: "Resonance Of Death",
+                    price: 400,
+                    released: false
                 },
-            ]
+            ],
+            url: "https://i.ytimg.com/vi/TEZBFGw2uWs/maxresdefault.jpg",
+            purpleSock: "https://stile12.com/6878-thickbox_default/ecotec-ecologic-cotton-men-long-socks-black-purple.jpg",
+            greySock: "https://cdn.shopify.com/s/files/1/0026/4578/6742/products/tailored-100-merino-socks-black-65-75-clothing-the-wool-company-359959.jpg?v=1570383944",
+            sock: "https://stile12.com/6878-thickbox_default/ecotec-ecologic-cotton-men-long-socks-black-purple.jpg"
         }
     },
     methods: {
@@ -48,6 +56,21 @@ const app = Vue.createApp({
         handleMouseMove(e) {
             this.x = e.offsetX;
             this.y = e.offsetY;
+        },
+        changeClass(game) {
+            /* for (var i = 0; i < this.games.length; i++) {
+                if (game.name == this.games[i].name) {
+                    if (this.games[i].released == true) {
+                        this.games[i].released = false;
+                    } else
+                        this.games[i].released = true;
+                }
+            } <---Long Way*/
+
+            game.released = !game.released;
+        },
+        toggleSock(sock) {
+
         }
     }
 });

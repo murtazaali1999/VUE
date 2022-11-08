@@ -14,6 +14,15 @@
         margin: 20px;
         display: inline-block;
       }
+
+      img {
+        width: 400px;
+        height: 300px;
+      }
+
+      .green {
+        background-color: green;
+      }
     </style>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
@@ -50,8 +59,25 @@
       <div class="box" @mousemove="handleMouseMove">{{x}} <--> {{y}}</div>
 
       <div class="gamer">
-        <ul v-for="game in games">
-          <li>{{game.name}} -- {{game.price}}</li>
+        <ul v-for="game in games" :class="{ green: game.released }">
+          <!-- Dynamic Class Attribute will only be used when value is truthy -->
+          <li @click="changeClass(game)">{{game.name}} -- {{game.price}}</li>
+        </ul>
+      </div>
+
+      <div class="binder box">
+        <img :src="url" alt="nothing" />
+        <!-- equivalent to {{url}}, v-bind binds that url to this image tag -->
+      </div>
+
+      <div class="frame">
+        <img v-bind:src="sock" alt="" />
+      </div>
+
+      <div>
+        <ul>
+          <li @click="sock = greySock">Purple</li>
+          <li @click="sock = purpleSock">Grey</li>
         </ul>
       </div>
     </div>
